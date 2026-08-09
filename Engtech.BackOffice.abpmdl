@@ -1,0 +1,114 @@
+{
+  "template": "app",
+  "imports": {
+    "Volo.Abp.LeptonXLiteTheme": {
+      "version": "5.6.0",
+      "isInstalled": true,
+      "creationTime": "08/09/2026 17:33:55 +00:00"
+    },
+    "Volo.Abp.Account": {
+      "version": "10.6.0",
+      "isInstalled": true,
+      "creationTime": "08/09/2026 17:33:55 +00:00"
+    },
+    "Volo.Abp.OpenIddict": {
+      "version": "10.6.0",
+      "isInstalled": true,
+      "creationTime": "08/09/2026 17:33:55 +00:00"
+    },
+    "Volo.Abp.Identity": {
+      "version": "10.6.0",
+      "isInstalled": true,
+      "creationTime": "08/09/2026 17:33:55 +00:00"
+    },
+    "Volo.Abp.TenantManagement": {
+      "version": "10.6.0",
+      "isInstalled": true,
+      "creationTime": "08/09/2026 17:33:55 +00:00"
+    },
+    "Volo.Abp.SettingManagement": {
+      "version": "10.6.0",
+      "isInstalled": true,
+      "creationTime": "08/09/2026 17:33:55 +00:00"
+    },
+    "Volo.Abp.PermissionManagement": {
+      "version": "10.6.0",
+      "isInstalled": true,
+      "creationTime": "08/09/2026 17:33:55 +00:00"
+    },
+    "Volo.Abp.FeatureManagement": {
+      "version": "10.6.0",
+      "isInstalled": true,
+      "creationTime": "08/09/2026 17:33:55 +00:00"
+    },
+    "Volo.Abp.BlobStoring.Database": {
+      "version": "10.6.0",
+      "isInstalled": true,
+      "creationTime": "08/09/2026 17:33:55 +00:00"
+    }
+  },
+  "folders": {
+    "items": {
+      "src": {},
+      "test": {}
+    }
+  },
+  "packages": {
+    "Engtech.BackOffice.Application": {
+      "path": "src/Engtech.BackOffice.Application/Engtech.BackOffice.Application.abppkg",
+      "folder": "src"
+    },
+    "Engtech.BackOffice.Application.Tests": {
+      "path": "test/Engtech.BackOffice.Application.Tests/Engtech.BackOffice.Application.Tests.abppkg",
+      "folder": "test"
+    },
+    "Engtech.BackOffice.Domain.Shared": {
+      "path": "src/Engtech.BackOffice.Domain.Shared/Engtech.BackOffice.Domain.Shared.abppkg",
+      "folder": "src"
+    },
+    "Engtech.BackOffice.Application.Contracts": {
+      "path": "src/Engtech.BackOffice.Application.Contracts/Engtech.BackOffice.Application.Contracts.abppkg",
+      "folder": "src"
+    },
+    "Engtech.BackOffice.HttpApi": {
+      "path": "src/Engtech.BackOffice.HttpApi/Engtech.BackOffice.HttpApi.abppkg",
+      "folder": "src"
+    },
+    "Engtech.BackOffice.HttpApi.Client": {
+      "path": "src/Engtech.BackOffice.HttpApi.Client/Engtech.BackOffice.HttpApi.Client.abppkg",
+      "folder": "src"
+    },
+    "Engtech.BackOffice.EntityFrameworkCore.Tests": {
+      "path": "test/Engtech.BackOffice.EntityFrameworkCore.Tests/Engtech.BackOffice.EntityFrameworkCore.Tests.abppkg",
+      "folder": "test"
+    },
+    "Engtech.BackOffice.EntityFrameworkCore": {
+      "path": "src/Engtech.BackOffice.EntityFrameworkCore/Engtech.BackOffice.EntityFrameworkCore.abppkg",
+      "folder": "src"
+    },
+    "Engtech.BackOffice.TestBase": {
+      "path": "test/Engtech.BackOffice.TestBase/Engtech.BackOffice.TestBase.abppkg",
+      "folder": "test"
+    },
+    "Engtech.BackOffice.Domain.Tests": {
+      "path": "test/Engtech.BackOffice.Domain.Tests/Engtech.BackOffice.Domain.Tests.abppkg",
+      "folder": "test"
+    },
+    "Engtech.BackOffice.HttpApi.Client.ConsoleTestApp": {
+      "path": "test/Engtech.BackOffice.HttpApi.Client.ConsoleTestApp/Engtech.BackOffice.HttpApi.Client.ConsoleTestApp.abppkg",
+      "folder": "test"
+    },
+    "Engtech.BackOffice.DbMigrator": {
+      "path": "src/Engtech.BackOffice.DbMigrator/Engtech.BackOffice.DbMigrator.abppkg",
+      "folder": "src"
+    },
+    "Engtech.BackOffice.Blazor": {
+      "path": "src/Engtech.BackOffice.Blazor/Engtech.BackOffice.Blazor.abppkg",
+      "folder": "src"
+    },
+    "Engtech.BackOffice.Domain": {
+      "path": "src/Engtech.BackOffice.Domain/Engtech.BackOffice.Domain.abppkg",
+      "folder": "src"
+    }
+  }
+}

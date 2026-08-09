@@ -1,0 +1,23 @@
+<Solution>
+    <Configurations>
+        <Platform Name="Any CPU" />
+    </Configurations>
+    <Folder Name="/src/">
+        <Project Path="src/Engtech.BackOffice.Domain/Engtech.BackOffice.Domain.csproj" />
+        <Project Path="src/Engtech.BackOffice.Application/Engtech.BackOffice.Application.csproj" />
+        <Project Path="src/Engtech.BackOffice.EntityFrameworkCore/Engtech.BackOffice.EntityFrameworkCore.csproj" />
+        <Project Path="src/Engtech.BackOffice.Domain.Shared/Engtech.BackOffice.Domain.Shared.csproj" />
+        <Project Path="src/Engtech.BackOffice.Application.Contracts/Engtech.BackOffice.Application.Contracts.csproj" />
+        <Project Path="src/Engtech.BackOffice.HttpApi/Engtech.BackOffice.HttpApi.csproj" />
+        <Project Path="src/Engtech.BackOffice.HttpApi.Client/Engtech.BackOffice.HttpApi.Client.csproj" />
+        <Project Path="src/Engtech.BackOffice.DbMigrator/Engtech.BackOffice.DbMigrator.csproj" />
+        <Project Path="src/Engtech.BackOffice.Blazor/Engtech.BackOffice.Blazor.csproj" />
+    </Folder>
+    <Folder Name="/test/">
+        <Project Path="test/Engtech.BackOffice.Application.Tests/Engtech.BackOffice.Application.Tests.csproj" />
+        <Project Path="test/Engtech.BackOffice.EntityFrameworkCore.Tests/Engtech.BackOffice.EntityFrameworkCore.Tests.csproj" />
+        <Project Path="test/Engtech.BackOffice.TestBase/Engtech.BackOffice.TestBase.csproj" />
+        <Project Path="test/Engtech.BackOffice.Domain.Tests/Engtech.BackOffice.Domain.Tests.csproj" />
+        <Project Path="test/Engtech.BackOffice.HttpApi.Client.ConsoleTestApp/Engtech.BackOffice.HttpApi.Client.ConsoleTestApp.csproj" />
+    </Folder>
+</Solution>
