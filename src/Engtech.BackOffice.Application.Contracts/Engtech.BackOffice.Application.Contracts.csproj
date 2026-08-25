@@ -1,17 +1,14 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
-
+<Project Sdk="Microsoft.NET.Sdk">
   <Import Project="..\..\common.props" />
-
   <PropertyGroup>
     <TargetFramework>net10.0</TargetFramework>
     <Nullable>enable</Nullable>
     <RootNamespace>Engtech.BackOffice</RootNamespace>
   </PropertyGroup>
-
   <ItemGroup>
     <ProjectReference Include="..\Engtech.BackOffice.Domain.Shared\Engtech.BackOffice.Domain.Shared.csproj" />
+    <ProjectReference Include="..\..\modules\Engtech.Binance\Engtech.Binance.Contracts\Engtech.Binance.Contracts.csproj" />
   </ItemGroup>
-  
   <ItemGroup>
     <PackageReference Include="Volo.Abp.PermissionManagement.Application.Contracts" Version="10.6.0" />
     <PackageReference Include="Volo.Abp.FeatureManagement.Application.Contracts" Version="10.6.0" />
@@ -20,5 +17,4 @@
     <PackageReference Include="Volo.Abp.Account.Application.Contracts" Version="10.6.0" />
     <PackageReference Include="Volo.Abp.TenantManagement.Application.Contracts" Version="10.6.0" />
   </ItemGroup>
-
 </Project>
