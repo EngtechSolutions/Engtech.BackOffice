@@ -1,13 +1,12 @@
+using Engtech.Binance.Data;
+using Engtech.Binance.Entities;
 using Microsoft.EntityFrameworkCore;
 using Volo.Abp.AuditLogging.EntityFrameworkCore;
-using Engtech.BackOffice.Authors;
-using Engtech.BackOffice.Books;
 using Volo.Abp.BackgroundJobs.EntityFrameworkCore;
 using Volo.Abp.BlobStoring.Database.EntityFrameworkCore;
 using Volo.Abp.Data;
 using Volo.Abp.DependencyInjection;
 using Volo.Abp.EntityFrameworkCore;
-using Volo.Abp.EntityFrameworkCore.Modeling;
 using Volo.Abp.FeatureManagement.EntityFrameworkCore;
 using Volo.Abp.Identity;
 using Volo.Abp.Identity.EntityFrameworkCore;
@@ -21,17 +20,21 @@ namespace Engtech.BackOffice.EntityFrameworkCore;
 
 [ReplaceDbContext(typeof(IIdentityDbContext))]
 [ReplaceDbContext(typeof(ITenantManagementDbContext))]
+[ReplaceDbContext(typeof(IBinanceDbContext))]
 [ConnectionStringName("Default")]
 public class BackOfficeDbContext :
     AbpDbContext<BackOfficeDbContext>,
     ITenantManagementDbContext,
-    IIdentityDbContext
+    IIdentityDbContext,
+    IBinanceDbContext
 {
     /* Add DbSet properties for your Aggregate Roots / Entities here. */
 
-    public DbSet<Author> Authors { get; set; }
+    //public DbSet<Author> Authors { get; set; }
 
-    public DbSet<Book> Books { get; set; }
+    //public DbSet<Book> Books { get; set; }
+
+    
 
     #region Entities from the modules
 
@@ -60,6 +63,13 @@ public class BackOfficeDbContext :
     public DbSet<Tenant> Tenants { get; set; }
     public DbSet<TenantConnectionString> TenantConnectionStrings { get; set; }
 
+    // Binance
+    public DbSet<Order> Orders { get; set; }
+    public DbSet<OrderMatch> OrderMatches { get; set; }
+    public DbSet<OrderMatchBuyOrder> OrderMatchBuyOrders { get; set; }
+    public DbSet<OrderMatchSellOrder> OrderMatchSellOrders { get; set; }
+    public DbSet<Symbol> Symbols { get; set; }
+
     #endregion
 
     public BackOfficeDbContext(DbContextOptions<BackOfficeDbContext> options)
@@ -84,23 +94,25 @@ public class BackOfficeDbContext :
         builder.ConfigureTenantManagement();
         builder.ConfigureBlobStoring();
 
-        builder.Entity<Author>(b =>
-        {
-            b.ToTable(BackOfficeConsts.DbTablePrefix + "Authors",
-                BackOfficeConsts.DbSchema);
-            b.ConfigureByConvention(); //auto configure for the base class props
-            b.Property(x => x.Name).IsRequired().HasMaxLength(AuthorConsts.MaxNameLength);
-            b.Property(x => x.ShortBio).HasMaxLength(AuthorConsts.MaxShortBioLength);
-        });
+        builder.ConfigureBinance();
 
-        builder.Entity<Book>(b =>
-        {
-            b.ToTable(BackOfficeConsts.DbTablePrefix + "Books",
-                BackOfficeConsts.DbSchema);
-            b.ConfigureByConvention(); //auto configure for the base class props
-            b.Property(x => x.Name).IsRequired().HasMaxLength(128);
-            b.HasOne<Author>().WithMany().HasForeignKey(x => x.AuthorId).IsRequired();
-        });
+        // builder.Entity<Author>(b =>
+        // {
+        //     b.ToTable(BackOfficeConsts.DbTablePrefix + "Authors",
+        //         BackOfficeConsts.DbSchema);
+        //     b.ConfigureByConvention(); //auto configure for the base class props
+        //     b.Property(x => x.Name).IsRequired().HasMaxLength(AuthorConsts.MaxNameLength);
+        //     b.Property(x => x.ShortBio).HasMaxLength(AuthorConsts.MaxShortBioLength);
+        // });
+
+        // builder.Entity<Book>(b =>
+        // {
+        //     b.ToTable(BackOfficeConsts.DbTablePrefix + "Books",
+        //         BackOfficeConsts.DbSchema);
+        //     b.ConfigureByConvention(); //auto configure for the base class props
+        //     b.Property(x => x.Name).IsRequired().HasMaxLength(128);
+        //     b.HasOne<Author>().WithMany().HasForeignKey(x => x.AuthorId).IsRequired();
+        // });
 
         /* Configure your own tables/entities inside here */
 
