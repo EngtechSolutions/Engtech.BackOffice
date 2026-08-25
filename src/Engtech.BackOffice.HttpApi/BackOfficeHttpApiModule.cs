@@ -1,4 +1,5 @@
-﻿using Localization.Resources.AbpUi;
+using Engtech.Binance;
+using Localization.Resources.AbpUi;
 using Engtech.BackOffice.Localization;
 using Volo.Abp.Account;
 using Volo.Abp.SettingManagement;
@@ -12,6 +13,7 @@ using Volo.Abp.TenantManagement;
 namespace Engtech.BackOffice;
 
  [DependsOn(
+    typeof(BinanceModule),
     typeof(BackOfficeApplicationContractsModule),
     typeof(AbpPermissionManagementHttpApiModule),
     typeof(AbpSettingManagementHttpApiModule),
