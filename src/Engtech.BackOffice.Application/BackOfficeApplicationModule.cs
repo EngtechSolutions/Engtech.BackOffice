@@ -1,4 +1,5 @@
-﻿using Volo.Abp.PermissionManagement;
+using Engtech.Binance;
+using Volo.Abp.PermissionManagement;
 using Volo.Abp.SettingManagement;
 using Volo.Abp.Account;
 using Volo.Abp.Identity;
@@ -11,6 +12,7 @@ using Volo.Abp.TenantManagement;
 namespace Engtech.BackOffice;
 
 [DependsOn(
+    typeof(BinanceModule),
     typeof(BackOfficeDomainModule),
     typeof(BackOfficeApplicationContractsModule),
     typeof(AbpPermissionManagementApplicationModule),
