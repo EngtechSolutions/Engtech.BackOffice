@@ -45,6 +45,9 @@
       "version": "10.6.0",
       "isInstalled": true,
       "creationTime": "08/09/2026 17:33:55 +00:00"
+    },
+    "Engtech.Binance": {
+      "path": "modules/engtech.binance/Engtech.Binance.abpmdl"
     }
   },
   "folders": {
