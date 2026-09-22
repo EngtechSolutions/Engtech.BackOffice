@@ -95,32 +95,5 @@ public class BackOfficeDbContext :
         builder.ConfigureBlobStoring();
 
         builder.ConfigureBinance();
-
-        // builder.Entity<Author>(b =>
-        // {
-        //     b.ToTable(BackOfficeConsts.DbTablePrefix + "Authors",
-        //         BackOfficeConsts.DbSchema);
-        //     b.ConfigureByConvention(); //auto configure for the base class props
-        //     b.Property(x => x.Name).IsRequired().HasMaxLength(AuthorConsts.MaxNameLength);
-        //     b.Property(x => x.ShortBio).HasMaxLength(AuthorConsts.MaxShortBioLength);
-        // });
-
-        // builder.Entity<Book>(b =>
-        // {
-        //     b.ToTable(BackOfficeConsts.DbTablePrefix + "Books",
-        //         BackOfficeConsts.DbSchema);
-        //     b.ConfigureByConvention(); //auto configure for the base class props
-        //     b.Property(x => x.Name).IsRequired().HasMaxLength(128);
-        //     b.HasOne<Author>().WithMany().HasForeignKey(x => x.AuthorId).IsRequired();
-        // });
-
-        /* Configure your own tables/entities inside here */
-
-        //builder.Entity<YourEntity>(b =>
-        //{
-        //    b.ToTable(BackOfficeConsts.DbTablePrefix + "YourEntities", BackOfficeConsts.DbSchema);
-        //    b.ConfigureByConvention(); //auto configure for the base class props
-        //    //...
-        //});
     }
 }
