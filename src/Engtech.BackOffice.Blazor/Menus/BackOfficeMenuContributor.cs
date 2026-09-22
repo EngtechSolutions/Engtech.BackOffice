@@ -46,25 +46,25 @@ public class BackOfficeMenuContributor : IMenuContributor
         administration.SetSubItemOrder(IdentityMenuNames.GroupName, 2);
         administration.SetSubItemOrder(SettingManagementMenus.GroupName, 3);
 
-        context.Menu.AddItem(
-            new ApplicationMenuItem(
-                "BooksStore",
-                l["Menu:BackOffice"],
-                icon: "fa fa-book"
-            ).AddItem(
-                new ApplicationMenuItem(
-                    "BooksStore.Books",
-                    l["Menu:Books"],
-                    url: "/books"
-                ).RequirePermissions(BackOfficePermissions.Books.Default)
-            ).AddItem(
-                new ApplicationMenuItem(
-                    "BooksStore.Authors",
-                    l["Menu:Authors"],
-                    url: "/authors"
-                ).RequirePermissions(BackOfficePermissions.Authors.Default)
-            )
-        );
+        // context.Menu.AddItem(
+        //     new ApplicationMenuItem(
+        //         "BooksStore",
+        //         l["Menu:BackOffice"],
+        //         icon: "fa fa-book"
+        //     ).AddItem(
+        //         new ApplicationMenuItem(
+        //             "BooksStore.Books",
+        //             l["Menu:Books"],
+        //             url: "/books"
+        //         ).RequirePermissions(BackOfficePermissions.Books.Default)
+        //     ).AddItem(
+        //         new ApplicationMenuItem(
+        //             "BooksStore.Authors",
+        //             l["Menu:Authors"],
+        //             url: "/authors"
+        //         ).RequirePermissions(BackOfficePermissions.Authors.Default)
+        //     )
+        // );
         return Task.CompletedTask;
     }
 }
