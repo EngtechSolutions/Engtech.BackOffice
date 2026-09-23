@@ -1,18 +1,15 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
   <Import Project="..\..\common.props" />
-
   <PropertyGroup>
     <TargetFramework>net10.0</TargetFramework>
     <Nullable>enable</Nullable>
     <RootNamespace>Engtech.BackOffice</RootNamespace>
   </PropertyGroup>
-
   <ItemGroup>
     <ProjectReference Include="..\Engtech.BackOffice.Domain\Engtech.BackOffice.Domain.csproj" />
     <ProjectReference Include="..\Engtech.BackOffice.Application.Contracts\Engtech.BackOffice.Application.Contracts.csproj" />
+    <ProjectReference Include="..\..\modules\Engtech.Binance\Engtech.Binance\Engtech.Binance.csproj" />
   </ItemGroup>
-
   <ItemGroup>
     <PackageReference Include="Volo.Abp.PermissionManagement.Application" Version="10.6.0" />
     <PackageReference Include="Volo.Abp.FeatureManagement.Application" Version="10.6.0" />
@@ -22,5 +19,4 @@
     <PackageReference Include="Volo.Abp.TenantManagement.Application" Version="10.6.0" />
     <PackageReference Include="MiniExcel" Version="1.41.4" />
   </ItemGroup>
-
 </Project>

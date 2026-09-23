@@ -11,15 +11,11 @@ public class BackOfficePermissionDefinitionProvider : PermissionDefinitionProvid
     {
         var myGroup = context.AddGroup(BackOfficePermissions.GroupName);
 
-        var booksPermission = myGroup.AddPermission(BackOfficePermissions.Books.Default, L("Permission:Books"));
-        booksPermission.AddChild(BackOfficePermissions.Books.Create, L("Permission:Books.Create"));
-        booksPermission.AddChild(BackOfficePermissions.Books.Edit, L("Permission:Books.Edit"));
-        booksPermission.AddChild(BackOfficePermissions.Books.Delete, L("Permission:Books.Delete"));
-
-        var authorsPermission = myGroup.AddPermission(BackOfficePermissions.Authors.Default, L("Permission:Authors"));
-        authorsPermission.AddChild(BackOfficePermissions.Authors.Create, L("Permission:Authors.Create"));
-        authorsPermission.AddChild(BackOfficePermissions.Authors.Edit, L("Permission:Authors.Edit"));
-        authorsPermission.AddChild(BackOfficePermissions.Authors.Delete, L("Permission:Authors.Delete"));
+        // var authorsPermission = myGroup.AddPermission(BackOfficePermissions.Authors.Default, L("Permission:Authors"));
+        // authorsPermission.AddChild(BackOfficePermissions.Authors.Create, L("Permission:Authors.Create"));
+        // authorsPermission.AddChild(BackOfficePermissions.Authors.Edit, L("Permission:Authors.Edit"));
+        // authorsPermission.AddChild(BackOfficePermissions.Authors.Delete, L("Permission:Authors.Delete"));
+        
         //Define your own permissions here. Example:
         //myGroup.AddPermission(BackOfficePermissions.MyPermission1, L("Permission:MyPermission1"));
     }

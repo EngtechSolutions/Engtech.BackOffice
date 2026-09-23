@@ -16,7 +16,7 @@
     "Engtech.Binance": {
       "path": "modules/engtech.binance/Engtech.Binance.abpmdl",
       "folder": "modules"
-    }
+    },
   },
   "runProfiles": {
     "Default": {

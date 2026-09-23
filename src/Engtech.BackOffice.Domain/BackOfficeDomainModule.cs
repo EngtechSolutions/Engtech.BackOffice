@@ -1,3 +1,4 @@
+using Engtech.Binance;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Engtech.BackOffice.Localization;
@@ -22,6 +23,7 @@ using Volo.Abp.TenantManagement;
 namespace Engtech.BackOffice;
 
 [DependsOn(
+    typeof(BinanceModule),
     typeof(BackOfficeDomainSharedModule),
     typeof(AbpAuditLoggingDomainModule),
     typeof(AbpCachingModule),

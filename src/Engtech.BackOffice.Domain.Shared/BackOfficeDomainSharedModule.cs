@@ -1,3 +1,4 @@
+using Engtech.Binance;
 using Engtech.BackOffice.Localization;
 using Volo.Abp.AuditLogging;
 using Volo.Abp.BackgroundJobs;
@@ -17,6 +18,7 @@ using Volo.Abp.TenantManagement;
 namespace Engtech.BackOffice;
 
 [DependsOn(
+    typeof(BinanceContractsModule),
     typeof(AbpAuditLoggingDomainSharedModule),
     typeof(AbpBackgroundJobsDomainSharedModule),
     typeof(AbpFeatureManagementDomainSharedModule),

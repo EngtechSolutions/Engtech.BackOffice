@@ -1,3 +1,4 @@
+using Engtech.Binance.Blazor;
 using System;
 using System.IO;
 using System.Security.Cryptography.X509Certificates;
@@ -56,6 +57,7 @@ using Volo.Abp.Studio.Client.AspNetCore;
 namespace Engtech.BackOffice.Blazor;
 
 [DependsOn(
+    typeof(BinanceBlazorModule),
     typeof(BackOfficeApplicationModule),
     typeof(AbpStudioClientAspNetCoreModule),
     typeof(BackOfficeEntityFrameworkCoreModule),
