@@ -10,6 +10,7 @@ using Volo.Abp.EntityFrameworkCore;
 using Volo.Abp.FeatureManagement.EntityFrameworkCore;
 using Volo.Abp.Identity;
 using Volo.Abp.Identity.EntityFrameworkCore;
+using Volo.Abp.PermissionManagement;
 using Volo.Abp.PermissionManagement.EntityFrameworkCore;
 using Volo.Abp.SettingManagement.EntityFrameworkCore;
 using Volo.Abp.OpenIddict.EntityFrameworkCore;
@@ -20,12 +21,14 @@ namespace Engtech.BackOffice.EntityFrameworkCore;
 
 [ReplaceDbContext(typeof(IIdentityDbContext))]
 [ReplaceDbContext(typeof(ITenantManagementDbContext))]
+[ReplaceDbContext(typeof(IPermissionManagementDbContext))]
 [ReplaceDbContext(typeof(IBinanceDbContext))]
 [ConnectionStringName("Default")]
 public class BackOfficeDbContext :
     AbpDbContext<BackOfficeDbContext>,
     ITenantManagementDbContext,
     IIdentityDbContext,
+    IPermissionManagementDbContext,
     IBinanceDbContext
 {
     /* Add DbSet properties for your Aggregate Roots / Entities here. */
@@ -62,6 +65,12 @@ public class BackOfficeDbContext :
     // Tenant Management
     public DbSet<Tenant> Tenants { get; set; }
     public DbSet<TenantConnectionString> TenantConnectionStrings { get; set; }
+
+    // Permission Management
+    public DbSet<PermissionGrant> PermissionGrants { get; set; }
+    public DbSet<PermissionGroupDefinitionRecord> PermissionGroups { get; set; }
+    public DbSet<PermissionDefinitionRecord> Permissions { get; set; }
+    public DbSet<ResourcePermissionGrant> ResourcePermissionGrants { get; set; }
 
     // Binance
     public DbSet<Order> Orders { get; set; }

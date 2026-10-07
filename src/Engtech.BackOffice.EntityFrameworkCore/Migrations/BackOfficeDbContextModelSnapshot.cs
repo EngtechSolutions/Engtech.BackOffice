@@ -24,125 +24,183 @@ namespace Engtech.BackOffice.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("Engtech.BackOffice.Authors.Author", b =>
+            modelBuilder.Entity("Engtech.Binance.Entities.Order", b =>
                 {
                     b.Property<Guid>("Id")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("BirthDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("ConcurrencyStamp")
-                        .IsConcurrencyToken()
-                        .IsRequired()
-                        .HasMaxLength(40)
-                        .HasColumnType("nvarchar(40)")
-                        .HasColumnName("ConcurrencyStamp");
-
-                    b.Property<DateTime>("CreationTime")
-                        .HasColumnType("datetime2")
-                        .HasColumnName("CreationTime");
-
-                    b.Property<Guid?>("CreatorId")
-                        .HasColumnType("uniqueidentifier")
-                        .HasColumnName("CreatorId");
-
-                    b.Property<Guid?>("DeleterId")
-                        .HasColumnType("uniqueidentifier")
-                        .HasColumnName("DeleterId");
-
-                    b.Property<DateTime?>("DeletionTime")
-                        .HasColumnType("datetime2")
-                        .HasColumnName("DeletionTime");
-
-                    b.Property<string>("ExtraProperties")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("ExtraProperties");
-
-                    b.Property<bool>("IsDeleted")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("bit")
-                        .HasDefaultValue(false)
-                        .HasColumnName("IsDeleted");
-
-                    b.Property<DateTime?>("LastModificationTime")
-                        .HasColumnType("datetime2")
-                        .HasColumnName("LastModificationTime");
-
-                    b.Property<Guid?>("LastModifierId")
-                        .HasColumnType("uniqueidentifier")
-                        .HasColumnName("LastModifierId");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(64)
-                        .HasColumnType("nvarchar(64)");
-
-                    b.Property<string>("ShortBio")
-                        .HasMaxLength(512)
-                        .HasColumnType("nvarchar(512)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("AppAuthors", (string)null);
-                });
-
-            modelBuilder.Entity("Engtech.BackOffice.Books.Book", b =>
-                {
-                    b.Property<Guid>("Id")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("AuthorId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("ConcurrencyStamp")
-                        .IsConcurrencyToken()
+                    b.Property<string>("ClientOrderId")
                         .IsRequired()
-                        .HasMaxLength(40)
-                        .HasColumnType("nvarchar(40)")
-                        .HasColumnName("ConcurrencyStamp");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
-                    b.Property<DateTime>("CreationTime")
-                        .HasColumnType("datetime2")
-                        .HasColumnName("CreationTime");
+                    b.Property<decimal?>("IcebergQty")
+                        .HasColumnType("decimal(18,8)");
 
-                    b.Property<Guid?>("CreatorId")
-                        .HasColumnType("uniqueidentifier")
-                        .HasColumnName("CreatorId");
+                    b.Property<bool>("IsIgnored")
+                        .HasColumnType("bit");
 
-                    b.Property<string>("ExtraProperties")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("ExtraProperties");
+                    b.Property<bool>("IsMatched")
+                        .HasColumnType("bit");
 
-                    b.Property<DateTime?>("LastModificationTime")
-                        .HasColumnType("datetime2")
-                        .HasColumnName("LastModificationTime");
+                    b.Property<decimal>("MarketOrderPrice")
+                        .HasColumnType("decimal(18,8)");
 
-                    b.Property<Guid?>("LastModifierId")
-                        .HasColumnType("uniqueidentifier")
-                        .HasColumnName("LastModifierId");
+                    b.Property<long>("OrderId")
+                        .HasColumnType("bigint");
 
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(128)
-                        .HasColumnType("nvarchar(128)");
-
-                    b.Property<float>("Price")
-                        .HasColumnType("real");
-
-                    b.Property<DateTime>("PublishDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("Type")
+                    b.Property<int>("OrderListId")
                         .HasColumnType("int");
 
+                    b.Property<decimal>("OrigQuoteOrderQty")
+                        .HasColumnType("decimal(18,8)");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,8)");
+
+                    b.Property<decimal>("Quantity")
+                        .HasColumnType("decimal(18,8)");
+
+                    b.Property<decimal>("QuantityFilled")
+                        .HasColumnType("decimal(18,8)");
+
+                    b.Property<decimal>("QuoteQuantityFilled")
+                        .HasColumnType("decimal(18,8)");
+
+                    b.Property<byte>("SelfTradePreventionMode")
+                        .HasColumnType("tinyint");
+
+                    b.Property<byte>("Side")
+                        .HasColumnType("tinyint");
+
+                    b.Property<byte>("Status")
+                        .HasColumnType("tinyint");
+
+                    b.Property<decimal?>("StopPrice")
+                        .HasColumnType("decimal(18,8)");
+
+                    b.Property<string>("Symbol")
+                        .IsRequired()
+                        .HasMaxLength(12)
+                        .HasColumnType("nvarchar(12)");
+
+                    b.Property<DateTime?>("Time")
+                        .HasColumnType("datetime2");
+
+                    b.Property<byte>("TimeInForce")
+                        .HasColumnType("tinyint");
+
+                    b.Property<byte>("Type")
+                        .HasColumnType("tinyint");
+
+                    b.Property<DateTime?>("UpdateTime")
+                        .HasColumnType("datetime2");
+
                     b.HasKey("Id");
 
-                    b.HasIndex("AuthorId");
+                    b.HasIndex("OrderId")
+                        .IsUnique();
 
-                    b.ToTable("AppBooks", (string)null);
+                    b.HasIndex("Type");
+
+                    b.ToTable("BinanceOrders", (string)null);
+                });
+
+            modelBuilder.Entity("Engtech.Binance.Entities.OrderMatch", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken()
+                        .IsRequired()
+                        .HasMaxLength(40)
+                        .HasColumnType("nvarchar(40)")
+                        .HasColumnName("ConcurrencyStamp");
+
+                    b.Property<decimal>("CumulativeSellQuoteQty")
+                        .HasColumnType("decimal(18,8)");
+
+                    b.Property<decimal>("ExecutedSellQty")
+                        .HasColumnType("decimal(18,8)");
+
+                    b.Property<string>("ExtraProperties")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("ExtraProperties");
+
+                    b.Property<bool>("IsCompleted")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("BinanceOrdersMatches", (string)null);
+                });
+
+            modelBuilder.Entity("Engtech.Binance.Entities.OrderMatchBuyOrder", b =>
+                {
+                    b.Property<Guid>("OrderMatchId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("BuyOrderId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("OrderMatchId", "BuyOrderId");
+
+                    b.HasIndex("BuyOrderId")
+                        .IsUnique();
+
+                    b.ToTable("BinanceOrderMatchBuyOrders", (string)null);
+                });
+
+            modelBuilder.Entity("Engtech.Binance.Entities.OrderMatchSellOrder", b =>
+                {
+                    b.Property<Guid>("OrderMatchId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("SellOrderId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("OrderMatchId", "SellOrderId");
+
+                    b.HasIndex("SellOrderId")
+                        .IsUnique();
+
+                    b.ToTable("BinanceOrderMatchSellOrders", (string)null);
+                });
+
+            modelBuilder.Entity("Engtech.Binance.Entities.Symbol", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Description")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("SymbolUsdt")
+                        .IsRequired()
+                        .HasMaxLength(10)
+                        .HasColumnType("nvarchar(10)");
+
+                    b.Property<string>("UrlIcon")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Name")
+                        .IsUnique();
+
+                    b.ToTable("BinanceSymbols", (string)null);
                 });
 
             modelBuilder.Entity("Volo.Abp.AuditLogging.AuditLog", b =>
@@ -1776,7 +1834,6 @@ namespace Engtech.BackOffice.Migrations
             modelBuilder.Entity("Volo.Abp.PermissionManagement.PermissionDefinitionRecord", b =>
                 {
                     b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("DisplayName")
@@ -1837,7 +1894,6 @@ namespace Engtech.BackOffice.Migrations
             modelBuilder.Entity("Volo.Abp.PermissionManagement.PermissionGrant", b =>
                 {
                     b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Name")
@@ -1871,7 +1927,6 @@ namespace Engtech.BackOffice.Migrations
             modelBuilder.Entity("Volo.Abp.PermissionManagement.PermissionGroupDefinitionRecord", b =>
                 {
                     b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("DisplayName")
@@ -1899,7 +1954,6 @@ namespace Engtech.BackOffice.Migrations
             modelBuilder.Entity("Volo.Abp.PermissionManagement.ResourcePermissionGrant", b =>
                 {
                     b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Name")
@@ -2110,13 +2164,42 @@ namespace Engtech.BackOffice.Migrations
                     b.ToTable("AbpTenantConnectionStrings", (string)null);
                 });
 
-            modelBuilder.Entity("Engtech.BackOffice.Books.Book", b =>
+            modelBuilder.Entity("Engtech.Binance.Entities.OrderMatchBuyOrder", b =>
                 {
-                    b.HasOne("Engtech.BackOffice.Authors.Author", null)
-                        .WithMany()
-                        .HasForeignKey("AuthorId")
+                    b.HasOne("Engtech.Binance.Entities.Order", "BuyOrder")
+                        .WithMany("OrderMatchBuyOrders")
+                        .HasForeignKey("BuyOrderId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("Engtech.Binance.Entities.OrderMatch", "OrderMatch")
+                        .WithMany("OrderMatchBuyOrders")
+                        .HasForeignKey("OrderMatchId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("BuyOrder");
+
+                    b.Navigation("OrderMatch");
+                });
+
+            modelBuilder.Entity("Engtech.Binance.Entities.OrderMatchSellOrder", b =>
+                {
+                    b.HasOne("Engtech.Binance.Entities.OrderMatch", "OrderMatch")
+                        .WithMany("OrderMatchSellOrders")
+                        .HasForeignKey("OrderMatchId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Engtech.Binance.Entities.Order", "SellOrder")
+                        .WithMany("OrderMatchSellOrders")
+                        .HasForeignKey("SellOrderId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("OrderMatch");
+
+                    b.Navigation("SellOrder");
                 });
 
             modelBuilder.Entity("Volo.Abp.AuditLogging.AuditLogAction", b =>
@@ -2324,6 +2407,20 @@ namespace Engtech.BackOffice.Migrations
                         .HasForeignKey("TenantId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("Engtech.Binance.Entities.Order", b =>
+                {
+                    b.Navigation("OrderMatchBuyOrders");
+
+                    b.Navigation("OrderMatchSellOrders");
+                });
+
+            modelBuilder.Entity("Engtech.Binance.Entities.OrderMatch", b =>
+                {
+                    b.Navigation("OrderMatchBuyOrders");
+
+                    b.Navigation("OrderMatchSellOrders");
                 });
 
             modelBuilder.Entity("Volo.Abp.AuditLogging.AuditLog", b =>
