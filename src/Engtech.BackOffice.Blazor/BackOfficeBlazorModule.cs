@@ -53,6 +53,7 @@ using Volo.Abp.UI.Navigation;
 using Volo.Abp.UI.Navigation.Urls;
 using Volo.Abp.VirtualFileSystem;
 using Volo.Abp.Studio.Client.AspNetCore;
+using Volo.Abp.Timing;
 
 namespace Engtech.BackOffice.Blazor;
 
@@ -130,7 +131,12 @@ public class BackOfficeBlazorModule : AbpModule
         // Add services to the container.
         context.Services.AddRazorComponents()
             .AddInteractiveServerComponents();
-
+		
+		Configure<AbpClockOptions>(options =>
+		{
+			options.Kind = DateTimeKind.Utc;
+		});
+		
         if (!configuration.GetValue<bool>("App:DisablePII"))
         {
             Microsoft.IdentityModel.Logging.IdentityModelEventSource.ShowPII = true;
