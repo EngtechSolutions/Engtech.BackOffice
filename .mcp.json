@@ -1,0 +1,27 @@
+{
+	"mcpServers": {
+		"abp-studio": {
+			"type": "local",
+			"command": "abp",
+			"args": [
+				"mcp-studio"
+			],
+			"tools": [
+				"*"
+			]
+		},
+		"mudblazor": {
+			"command": "dnx",
+			"args": [
+				"MudMCP",
+				"--yes",
+				"--",
+				"--stdio"
+			],
+			"env": {
+				"MUDBLAZOR_VERSION": "9.4.0",
+				"MudBlazor__Repository__DataPath": "C:/Users/Arsenio/.mudmcp"
+			}
+		}
+	}
+}
